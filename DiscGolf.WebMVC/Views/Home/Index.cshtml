@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+    <style>
+        .home-jumbo-background {
+            background-image: url('https://cdn.pixabay.com/photo/2015/10/04/11/16/disc-golf-970865_960_720.jpg');
+            background-origin: padding-box;
+            background-position: left;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .home-logo {
+            background-color: white;
+            border: 3px solid black;
+            padding-left: 8px;
+            border-radius: 10px;
+            margin-right: 600px;
+            margin-bottom: 100px;
+        }
+
+        .jumbo-info-button {
+            margin-bottom: 100px;
+        }
+
+        .home-link-border-top {
+            border: 3px solid black;
+            border-radius: 10px 0px 0px 0px;
+        }
+
+        .home-link-border-mid {
+            border: 3px solid black;
+            margin-top: -3px;
+            margin-bottom: -3px;
+        }
+
+        .home-link-border-bottom {
+            border: 3px solid black;
+            border-radius: 0px 0px 0px 10px;
+        }
+        .new-course {
+            background-image: url('https://s0.geograph.org.uk/geophotos/04/57/81/4578133_ae991710.jpg');
+            background-origin: padding-box;
+            background-position: left;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 0px 10px 10px 0px;
+            margin-left: -15px;
+        }
+        .new-course-button{
+            margin-left: 470px;
+            margin-top: 145px;
+        }
+    </style>
+<div class="jumbotron home-jumbo-background">
+    div
+    <div class="home-logo">
+        <h1>Indy Disc Golf</h1>
+    </div>
+    <p class="jumbo-info-button"><a href="https://www.pdga.com/introduction" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="home-link-border-top">
+            <h2>@Html.ActionLink("Counties", "Index", "County")</h2>
+        </div>
+        <div class="home-link-border-mid">
+            <h2>@Html.ActionLink("Courses", "Index", "Course")</h2>
+        </div>
+        <div class="home-link-border-bottom">
+            <h2>@Html.ActionLink("Empty","","")</h2>
+        </div>
+    </div>
+    <div class="new-course col-md-8">
+        <p class="new-course-button"><a href="https://asp.net" class="btn btn-primary btn-lg">Checkout Our Newest Course!</a></p>
+    </div>
+</div>

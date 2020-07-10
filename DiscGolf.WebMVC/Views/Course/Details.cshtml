@@ -1,0 +1,78 @@
+﻿@model DiscGolf.Models.CourseModels.CourseDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CourseDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountyName)
+        </dd>
+
+    </dl>
+</div>
+<h2 class="text-success text-center">@Html.DisplayFor(model => model.CourseName) Reviews</h2>
+@using (Html.BeginForm("PostComment","Course", FormMethod.Post))
+{
+    <input type="text" name="CommentText" placeholder="Type new review"/>
+    <br />
+    <input type="submit" value="Post Comment" class="btn btn-success" />
+}
+@foreach (var comment in Model.Comments)
+{
+    <tr style="border:1px solid black">
+        <td>
+            <span>
+                @Html.DisplayFor(modelItem => comment.Username)
+            </span>
+            <span>
+                @Html.DisplayFor(modelItem => comment.Text)
+            </span>
+        </td>
+    </tr>
+}
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
