@@ -13,7 +13,7 @@ namespace DiscGolf.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202007091535285_First-Migration"; }
+            get { return "202007111816079_FirstMigration"; }
         }
         
         string IMigrationMetadata.Source

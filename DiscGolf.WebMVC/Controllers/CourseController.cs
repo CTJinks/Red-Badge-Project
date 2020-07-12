@@ -59,26 +59,10 @@ namespace DiscGolf.WebMVC.Controllers
             //add services, make comment models
             var svc = CreateCourseService();
             var model = svc.GetCourseById(id);
-            var comments = _db.Comments.ToList();
+            //var comments = _db.Comments.ToList();
             return View(model);
         }
-        // Post: Chatroom/PostComment
-        [HttpPost]
-        public ActionResult PostComment(string CommentText)
-        {
-            string username = User.Identity.GetUserName();
-            int userId = Convert.ToInt32(User.Identity.GetUserId());
-            if (userId == 0)
-            {
-                return RedirectToAction("Login", "Account");
-            }
-            Comment c = new Comment();
-            c.Text = CommentText;
-            c.Username = username;
-            _db.Comments.Add(c);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        
         private CourseService CreateCourseService()
         {
             var service = new CourseService();

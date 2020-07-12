@@ -10,15 +10,12 @@ using System.Threading.Tasks;
 
 namespace DiscGolf.Models.CourseModels
 {
-    public class Comment
+    public class Comment : ApplicationUser
     { 
         [Key]
         public int CommentId { get; set; }
         [Required]
         public string Text { get; set; }
-        [ForeignKey("User")]
-        public int UserId { get; set; }
-        public virtual ApplicationUser User { get; set; }
 
         [ForeignKey("Course")]
         public int CourseId { get; set; }

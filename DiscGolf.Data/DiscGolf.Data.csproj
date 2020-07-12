@@ -57,11 +57,10 @@
     <Compile Include="Comment.cs" />
     <Compile Include="County.cs" />
     <Compile Include="Course.cs" />
-    <Compile Include="Hole.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202007091535285_First-Migration.cs" />
-    <Compile Include="Migrations\202007091535285_First-Migration.Designer.cs">
-      <DependentUpon>202007091535285_First-Migration.cs</DependentUpon>
+    <Compile Include="Migrations\202007111816079_FirstMigration.cs" />
+    <Compile Include="Migrations\202007111816079_FirstMigration.Designer.cs">
+      <DependentUpon>202007111816079_FirstMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,8 +70,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202007091535285_First-Migration.resx">
-      <DependentUpon>202007091535285_First-Migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202007111816079_FirstMigration.resx">
+      <DependentUpon>202007111816079_FirstMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -14,13 +14,5 @@ namespace DiscGolf.Models.CourseModels
         public string CourseName { get; set; }
         public string CourseDescription { get; set; }
         public string CountyName { get; set; }
-        public List<CommentListItem> Comments { get; set; }
-    }
-    public class CommentListItem
-    {
-        public int CommentId { get; set; }
-        public string Text { get; set; }
-        public int UserId { get; set; }
-        public string UserName { get; set; }
     }
 }

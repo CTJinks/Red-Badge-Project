@@ -33,7 +33,6 @@ namespace DiscGolf.Data
             return new ApplicationDbContext();
         }
         public DbSet<County> Counties { get; set; }
-        public DbSet<Hole> Holes { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Comment> Comments { get; set; }
 

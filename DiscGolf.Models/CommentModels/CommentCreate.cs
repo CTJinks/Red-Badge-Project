@@ -5,12 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiscGolf.Models.HoleModels
+namespace DiscGolf.Models.CommentModels
 {
-    public class HoleCreate
+    public class CommentCreate
     {
         [Required]
-        public int HoleNumber { get; set; }
-        public string HoleDescription { get; set; }
+        public string Text { get; set; }
     }
 }
