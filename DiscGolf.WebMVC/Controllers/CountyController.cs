@@ -32,7 +32,11 @@ namespace DiscGolf.WebMVC.Controllers
             {
                 return View(model);
             }
-
+            bool UserIsLoggedIn = User.Identity.IsAuthenticated;
+            if (!UserIsLoggedIn)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             var service = new CountyService();
 
             service.CreateCounty(model);

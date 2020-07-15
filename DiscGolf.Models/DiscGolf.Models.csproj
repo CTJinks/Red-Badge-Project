@@ -63,6 +63,7 @@
     <Compile Include="CountyModels\CountyListItem.cs" />
     <Compile Include="CourseModels\CourseCreate.cs" />
     <Compile Include="CourseModels\CourseDetail.cs" />
+    <Compile Include="CourseModels\CourseEdit.cs" />
     <Compile Include="CourseModels\CourseListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -11,12 +11,19 @@ namespace DiscGolf.Services
 {
     public class CommentService
     {
+        private readonly string _userId;
+        public CommentService(string userId)
+        {
+            _userId = userId;
+        }
         public bool CreateComment(CommentCreate model)
         {
             var entity =
                 new Comment()
                 {
-                    Text = model.Text
+                    ApplicationUserId = _userId,
+                    Text = model.Text,
+                    CourseId = model.CourseId
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -36,22 +43,60 @@ namespace DiscGolf.Services
                             e =>
                                 new CommentListItem
                                 {
-                                    Text = e.Text,
-                                    UserName = e.UserName
+                                    UserName = e.AppUser.UserName,
+                                    CourseName = e.Course.CourseName,
+                                    Text = e.Text
                                 }
                         );
                 var array = query.ToArray();
                 return array;
             }
         }
-        public CommentDetail GetCommentByCourse(Course Course)
+        public IEnumerable<CommentListItem> SortComments(string sortOrder, string searchString)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var comments = from s in ctx.Comments
+                              select s;
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    comments = comments.Where(s => s.Course.CourseName.Contains(searchString));
+                }
+                switch (sortOrder)
+                {
+                    case "name_desc":
+                        comments = comments.OrderByDescending(s => s.CommentId);
+                        break;
+                    case "courseName":
+                        comments = comments.OrderBy(s => s.Course.CourseName);
+                        break;
+                    case "courseName_desc":
+                        comments = comments.OrderByDescending(s => s.Course.CourseName);
+                        break;
+                    default:
+                        comments = comments.OrderBy(s => s.CommentId);
+                        break;
+                }
+                return (comments.Select(
+                            e =>
+                                new CommentListItem
+                                {
+                                    CommentId = e.CommentId,
+                                    UserName = e.AppUser.UserName,
+                                    CourseName = e.Course.CourseName,
+                                    Text = e.Text
+                                }
+                        ).ToList());
+            }
+        }
+        /*public List<CommentDetail> GetCommentByCourse(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Comments
-                        .Single(e => e.Course == Course);
+                        .Where(e => e.Course.CourseId == id);
                 return
                     new CommentDetail
                     {
@@ -62,7 +107,7 @@ namespace DiscGolf.Services
                     };
             }
 
-        }
+        }*/
         public CommentDetail GetCommentById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -75,9 +120,9 @@ namespace DiscGolf.Services
                     new CommentDetail
                     {
                         CommentId = entity.CommentId,
+                        UserName = entity.AppUser.UserName,
                         Text = entity.Text,
-                        CourseName = entity.Course.CourseName,
-                        UserName = entity.UserName
+                        CourseName = entity.Course.CourseName
                     };
             }
         }

@@ -33,29 +33,28 @@
     </div>
 
     <div class="form-group">
+        @Html.LabelFor(model => model.Holes, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Holes, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Holes, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
         @Html.LabelFor(model => model.CourseDescription, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-
             @Html.EditorFor(model => model.CourseDescription, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.CourseDescription, "", new { @class = "text-danger" })
         </div>
     </div>
 
-    @*<div>
-            @Html.LabelFor(model => model.County, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div>
-                @Html.DropDownList("Counties", "select County")
-            </div>
-        </div>*@
-    
-<div class="form-group">
-    @Html.LabelFor(model => model.CountyId, "County", htmlAttributes: new { @class = "control-label col-md-2" })
-    <div class="col-md-10">
-        @Html.DropDownList("CountyId", listOfCounties , " Choose County ", htmlAttributes: new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.CountyId, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.CountyId, "County", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("CountyId", listOfCounties, " Choose County ", htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CountyId, "", new { @class = "text-danger" })
+        </div>
     </div>
-</div>
-
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">

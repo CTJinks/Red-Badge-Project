@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DiscGolf.Models.CourseModels
 {
-    public class Comment : ApplicationUser
+    public class Comment
     { 
         [Key]
         public int CommentId { get; set; }
@@ -18,7 +18,11 @@ namespace DiscGolf.Models.CourseModels
         public string Text { get; set; }
 
         [ForeignKey("Course")]
-        public int CourseId { get; set; }
+        public int? CourseId { get; set; }
         public virtual Course Course { get; set; }
+        [ForeignKey("AppUser")]
+        public string ApplicationUserId { get; set; }
+        public virtual ApplicationUser AppUser { get; set; }
+
     }
 }

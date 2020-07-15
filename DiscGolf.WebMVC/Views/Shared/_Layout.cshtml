@@ -1,4 +1,19 @@
 ﻿<!DOCTYPE html>
+<style>
+    body {
+        background-image: url('../../Resources/DiscGolf.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .body-content {
+        background-color: white;
+        border-bottom: 5px solid black;
+        border-left: 5px solid black;
+        border-right: 5px solid black;
+        border-radius: 0px 0px 15px 15px;
+    }
+</style>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -24,6 +39,7 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Counties", "Index", "County")</li>
                     <li>@Html.ActionLink("Courses", "Index", "Course")</li>
+                    <li>@Html.ActionLink("Reviews", "Index", "Comment")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")

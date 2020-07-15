@@ -11,5 +11,6 @@ namespace DiscGolf.Models.CommentModels
     {
         [Required]
         public string Text { get; set; }
+        public int? CourseId { get; set; }
     }
 }

@@ -9,10 +9,15 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@using (Html.BeginForm())
+{
+    <p>
+        Find by County: @Html.TextBox("SearchString")<input type="submit" value="Search" /></p>
+}
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.CourseId)
+            @Html.ActionLink("Course Id", "Index", new { sortOrder = ViewBag.CourseIdSortParm})
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CourseLocation)
@@ -21,10 +26,13 @@
             @Html.DisplayNameFor(model => model.CourseName)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Holes)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.CourseDescription)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.County)
+            @Html.ActionLink("County Name", "Index", new { sortOrder = ViewBag.CountyNameSortParm })
         </th>
         <th></th>
     </tr>
@@ -41,13 +49,16 @@
             @Html.DisplayFor(modelItem => item.CourseName)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Holes)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.CourseDescription)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CountyName)
         </td>
         <td>
-            @Html.ActionLink("Reviews","Details", new { id = item.CourseId })
+            @Html.ActionLink("Reviews", "Index", "Comment") | @Html.ActionLink("Write Review", "Create", "Comment") | @Html.ActionLink("Details", "Details", new { id = item.CourseId }) | @Html.ActionLink("Delete", "Delete", new { id = item.CourseId }) | @Html.ActionLink("Edit", "Edit", new { id = item.CourseId })
         </td>
     </tr>
 }

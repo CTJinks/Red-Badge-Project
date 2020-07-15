@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
@@ -19,6 +20,9 @@ namespace DiscGolf.Data
             // Add custom user claims here
             return userIdentity;
         }
+
+
+        public virtual ICollection<Comment> CommentsByUser { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

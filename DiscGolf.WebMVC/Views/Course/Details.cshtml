@@ -35,6 +35,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Holes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Holes)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.CourseDescription)
         </dt>
 
@@ -52,27 +60,7 @@
 
     </dl>
 </div>
-<h2 class="text-success text-center">@Html.DisplayFor(model => model.CourseName) Reviews</h2>
-@using (Html.BeginForm("PostComment","Course", FormMethod.Post))
-{
-    <input type="text" name="CommentText" placeholder="Type new review"/>
-    <br />
-    <input type="submit" value="Post Comment" class="btn btn-success" />
-}
-@foreach (var comment in Model.Comments)
-{
-    <tr style="border:1px solid black">
-        <td>
-            <span>
-                @Html.DisplayFor(modelItem => comment.Username)
-            </span>
-            <span>
-                @Html.DisplayFor(modelItem => comment.Text)
-            </span>
-        </td>
-    </tr>
-}
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CourseId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

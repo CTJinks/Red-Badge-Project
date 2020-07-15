@@ -17,6 +17,8 @@ namespace DiscGolf.Data
         public string CourseName { get; set; }
         [Required]
         public string CourseLocation { get; set; }
+        [Required]
+        public int Holes { get; set; }
         public string CourseDescription { get; set; }
         [ForeignKey("County")]
         public int? CountyId { get; set; }
